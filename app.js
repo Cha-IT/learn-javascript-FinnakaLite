@@ -4,6 +4,8 @@ let usrname = "Stranger";
 let tallEn = 0;
 let tallTo = 0;
 let birthDate = null;
+let birthDateBus = null;
+let ageBus = null;
 
 function oppgaveEn() {
     // Tar inn navnet, og lager en pop up med hei navnet
@@ -40,3 +42,22 @@ function oppgaveTre() {
         alert("Husk å velge en dato før du trykker på submit!")
     }
 }
+
+function oppgaveFire() {
+    birthDateBus = Date.parse(document.getElementById("oppgaveFireDate").value);
+    ageBus = Math.floor((Date.now() - birthDateBus) / 31556952000);
+    console.log(ageBus);
+
+    switch (ageBus) {
+        case (ageBus > 0 && ageBus < 18):
+            alert("Du er under 18! Du kan kjøpe barnebillett.");
+            break;
+        case (ageBus >= 18 && ageBus < 67):
+            alert("Du kan kjøpe voksenbillett.");
+            break;
+        case (ageBus >= 67):
+            alert("Du får rabatt! Du kan kjøpe honørbillett.");
+            break;
+        default:
+            alert("Vi kunne ikke regne ut vilken bilett type er riktig for deg! Vennligst prøv å sett inn fødselsdatoen på nytt.");
+    }}
