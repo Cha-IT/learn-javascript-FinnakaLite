@@ -3,6 +3,7 @@ let usrname = "Stranger";
 // Variables Oppgave 2
 let tallEn = 0;
 let tallTo = 0;
+let birthDate = null;
 
 function oppgaveEn() {
     // Tar inn navnet, og lager en pop up med hei navnet
@@ -23,5 +24,19 @@ function oppgaveTo() {
         ${tallEn} / ${tallTo} = ${tallEn / tallTo}`);
     } else {
         alert("Error: Husk å kun bruke tall i input boksen! Vennligst prøv igjen.")
+    }
+}
+
+function oppgaveTre() {
+    //Tar dato fra kalenderen
+    birthDate = Date.parse(document.getElementById("oppgaveTreDate").value);
+
+    // 5.68e+11 representerer 18 år i millisekunder.
+    if (birthDate + 5.68e+11 < Date.now()) {
+        alert("Du får kjøpe øl!")
+    } else if (birthDate + 5.68e+11 > Date.now()) {
+        alert("Du får IKKE kjøpe øl :(")
+    } else {
+        alert("Husk å velge en dato før du trykker på submit!")
     }
 }
